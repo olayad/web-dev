@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    font-family: "Avenir", "sans-serif";
+}
+
+.completed{
+    background: steelblue;
+    color: white;
+}
+
+#stripe{
+    background-color: white;
+    height: 30px;
+    text-align: center;
+    color: black;
+}
+
+.black-background{
+    background-color: #232323;
+}
+
+#rgb{
+    font-size: 200%;
+}
+
+#message{
+    display: inline-block;
+    width: 20%;
+}
+
+h1{
+    color: white;
+    text-align: center;
+    background-color: steelblue;
+    margin: 0;
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 1.1;
+    padding: 20px 0;
+}
+
+.square{
+    background-color: white;
+    width: 30%;
+    padding-bottom: 30%;
+    margin: 1.66%;
+    float: left;
+    border-radius: 25px;
+    transition: background-color 0.6s;
+    --webkit-transition: background 0.6s;
+    --moz-transition: background 0.6s;
+}
+
+#main-game-area{
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+button {
+    border: None;
+    background: None;
+    text-transform: uppercase;
+    height: 100%;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: 700;
+    color: steelblue;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    --webkit-transition: background 0.3s;
+    --moz-transition: background 0.3s;
+    outline: none;
+}
+
+button:hover{
+    color: white;
+    background: steelblue;
+}
+
+.container{
+    margin: 20px auto;
+}

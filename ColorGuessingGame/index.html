@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/color-guessing-game.css">
+
+    <title>The Great Guessing Game</title>
+</head>
+<body class="black-background">
+    <div id="title" >
+        <h1>The Great
+            <br>
+                <span id="rgb">
+                    rgb(<span class="guess">255</span>,<span class="guess">255</span>,<span class="guess">255</span>)
+                </span>
+            </br>
+            Color Game
+        </h1>
+
+    </div>
+    <div id="stripe">
+        <button id="reset">NEW COLORS</button>
+        <span id="message"></span>
+        <button id="easyBtn">Easy</button>
+        <button id="hardBtn" class="selected">Hard</button>
+    </div>
+
+    <section id="main-game-area">
+        <div class="container">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="js/color-guessing-game.js"></script>
+
+
+</body>
+</html>
