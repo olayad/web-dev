@@ -16,19 +16,32 @@
 
 
     <script type="text/paperscript" canvas="myCanvas">
+        var circles = [];
         function onKeyDown(event) {
             var maxPoint = new Point(view.size.width, view.size.height);
             var randomPoint = Point.random();
             var point = maxPoint * randomPoint;
-
-            
-            console.log(maxPoint);
-
-            new Path.Circle(point, 10).fillColor = "yellow";
+            var newCircle = new Path.Circle(point, 500);
+            newCircle.fillColor = random_rgba();
+            circles.push(newCircle);
 
         }
-            console.log(view.size);
+
+        // var animatedCircle = new Path.Circle(new Point(300,300), 100);
+        // animatedCircle.fillColor = "red";
+        function onFrame(event){
+            for(var i = 0; i < circles.length; i++){
+                circles[i].fillColor.hue += 1;
+                circles[i].scale(.90)
+            }
+        }
+
+        function random_rgba() {
+            var o = Math.round, r = Math.random, s = 255;
+            return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+        }
     </script>
+
 
 
 
