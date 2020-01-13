@@ -9,26 +9,164 @@
     <script type="text/javascript" src="./js/lib/jquery-3.4.1.js"></script>
 	<link rel="stylesheet" href="css/patatap.css">
     <script type="text/javascript" src="js/lib/paper-full.js"></script>
-
-
-<!--    <script type="text/javascript" src="./js/patatap.js"></script>-->
-
-
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.3/howler.core.min.js"></script>
     <script type="text/paperscript" canvas="myCanvas">
+        var keyData = {
+            a:{
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/confetti.mp3']})
+            },
+            b: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/clay.mp3']})
+            },
+            c: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/bubbles.mp3']})
+            },
+            d: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/corona.mp3']})
+            },
+            e: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/dotted-spiral.mp3']})
+            },
+            f: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/flash-1.mp3']})
+            },
+            g: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/flash-2.mp3']})
+            },
+            h: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/flash-3.mp3']})
+            },
+            i: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/glimmer.mp3']})
+            },
+            j: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/moon.mp3']})
+            },
+            k: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/pinwheel.mp3']})
+            },
+            l: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/piston-1.mp3']})
+            },
+            m: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/piston-2.mp3']})
+            },
+            n: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/piston-3.mp3']})
+            },
+            o: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/prism-1.mp3']})
+            },
+            p: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/prism-2.mp3']})
+            },
+            q: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/prism-3.mp3']})
+            },
+            r: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/splits.mp3']})
+            },
+            s: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/squiggle.mp3']})
+            },
+            t: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/strike.mp3']})
+            },
+            u: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/suspension.mp3']})
+            },
+            v: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/timer.mp3']})
+            },
+            w: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/ufo.mp3']})
+            },
+            x: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/veil.mp3']})
+            },
+            y: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/wipe.mp3']})
+            },
+            z: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/zig-zag.mp3']})
+            },
+            space: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/squiggle.mp3']})
+            },
+            enter: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/strike.mp3']})
+            },
+            shift: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/suspension.mp3']})
+            },
+            del: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/timer.mp3']})
+            },
+            control: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/ufo.mp3']})
+            },
+            alt: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/veil.mp3']})
+            },
+            backspace: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/wipe.mp3']})
+            },
+            esc: {
+                color: random_rgba(),
+                sound: new Howl({src: ['./sounds/zig-zag.mp3']})
+            }
+
+        };
+
         var circles = [];
         function onKeyDown(event) {
-            var maxPoint = new Point(view.size.width, view.size.height);
-            var randomPoint = Point.random();
-            var point = maxPoint * randomPoint;
-            var newCircle = new Path.Circle(point, 500);
-            newCircle.fillColor = random_rgba();
-            circles.push(newCircle);
+            if(keyData[event.key]){
+                var maxPoint = new Point(view.size.width, view.size.height);
+                var randomPoint = Point.random();
+                var point = maxPoint * randomPoint;
+                var newCircle = new Path.Circle(point, 500);
+
+                keyData[event.key]["sound"].play();
+                newCircle.fillColor = keyData[event.key]["color"];
+                circles.push(newCircle);
+            }
+
 
         }
 
-        // var animatedCircle = new Path.Circle(new Point(300,300), 100);
-        // animatedCircle.fillColor = "red";
         function onFrame(event){
             for(var i = 0; i < circles.length; i++){
                 circles[i].fillColor.hue += 1;
