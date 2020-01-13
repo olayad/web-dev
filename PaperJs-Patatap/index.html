@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="./js/lib/jquery-3.4.1.js"></script>
+	<link rel="stylesheet" href="css/patatap.css">
+    <script type="text/javascript" src="js/lib/paper-full.js"></script>
+
+
+<!--    <script type="text/javascript" src="./js/patatap.js"></script>-->
+
+
+
+    <script type="text/paperscript" canvas="myCanvas">
+        function onKeyDown(event) {
+            var maxPoint = new Point(view.size.width, view.size.height);
+            var randomPoint = Point.random();
+            var point = maxPoint * randomPoint;
+
+            
+            console.log(maxPoint);
+
+            new Path.Circle(point, 10).fillColor = "yellow";
+
+        }
+            console.log(view.size);
+    </script>
+
+
+
+
+
+
+</head>
+<body>
+	<canvas id="myCanvas" resize></canvas>
+
+</body>
+</html>
