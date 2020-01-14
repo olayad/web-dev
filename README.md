@@ -16,4 +16,6 @@ Uses html and JavaScript.
 
 ## Audio + Visual Animation
 
-[Patatap](https://patatap.com/) clone using PaperJs and Howler libraries.
+[Patatap](https://patatap.com/) clone.
+
+Uses PaperJs and Howler JavaScript libraries.
