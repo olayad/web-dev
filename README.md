@@ -13,3 +13,7 @@ Uses html and JavaScript.
  Uses html, css and jQuery.
 
 ![](TodoList/todo.png)
+
+## Audio + Visual Animation
+
+[Patatap](https://patatap.com/) clone using PaperJs and Howler libraries.
