@@ -148,7 +148,6 @@
                 color: random_rgba(),
                 sound: new Howl({src: ['./sounds/zig-zag.mp3']})
             }
-
         };
 
         var circles = [];
@@ -163,14 +162,16 @@
                 newCircle.fillColor = keyData[event.key]["color"];
                 circles.push(newCircle);
             }
-
-
         }
 
         function onFrame(event){
-            for(var i = 0; i < circles.length; i++){
+            for(var i = 0; i < circles.length; i++) {
                 circles[i].fillColor.hue += 1;
-                circles[i].scale(.90)
+                circles[i].scale(.90);
+                if (circles[i].area < 1){ //remove circles once they have vanished from frame
+                    circles[i].remove();
+                    circles.splice(i, 1);
+                }
             }
         }
 
@@ -179,12 +180,6 @@
             return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
         }
     </script>
-
-
-
-
-
-
 
 </head>
 <body>
