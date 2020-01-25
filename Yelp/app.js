@@ -6,9 +6,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
 var campgrounds = [
-   {name: "salmon1", image: "https://pixabay.com/get/54e5dd424856ae14f6da8c7dda793f7f1636dfe2564c704c722673d7914cc65c_340.jpg"},
-   {name: "salmon2", image: "https://pixabay.com/get/54e2dd444f55ad14f6da8c7dda793f7f1636dfe2564c704c722673d7914cc65c_340.jpg"},
-   {name: "salmon3", image: "https://pixabay.com/get/5ee0d44a4854b108f5d084609620367d1c3ed9e04e50744e7c2778d2964ec1_340.jpg"}
+   {name: "Tofino", image: "https://images.unsplash.com/photo-1497900304864-273dfb3aae33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1388&q=80"},
+   {name: "Parksville", image: "https://images.unsplash.com/photo-1542332213-1d277bf3d6c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"},
+   {name: "Cape Scott", image: "https://images.unsplash.com/photo-1480779735619-f73b30fdc062?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"},
+   {name: "Tofino1", image: "https://images.unsplash.com/photo-1497900304864-273dfb3aae33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1388&q=80"},
+   {name: "Parksville1", image: "https://images.unsplash.com/photo-1542332213-1d277bf3d6c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"},
+   {name: "Cape Scott1", image: "https://images.unsplash.com/photo-1480779735619-f73b30fdc062?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"}
 ];
 
 
