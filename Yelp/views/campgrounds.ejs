@@ -20,14 +20,17 @@
 
     <div class="row pt-4">
         <% campgrounds.forEach(function(campground){ %>
-            <div class="col-md-3 col-sm-6">
-<!--                <div class="img-thumbnail">-->
-                    <div class="caption img-thumbnail">
-                        <img id="pic" class="img-fluid"  src="<%= campground.image %>">
-                        <h4> <%= campground.name %> </h4>
-                    </div>
+            <div class="col-md-3 col-sm-6 pb-4">
+                <div class="card" >
+                    <img class="card-img-top" height="200px" src="<%= campground.image %>">
+                    <div class="card-body">
+                        <h4 class="card-title"> <%= campground.name %> </h4>
 
-<!--                </div>-->
+                    </div>
+                    <!--                    <div class="caption img-thumbnail">-->
+<!--                    </div>-->
+
+                </div>
             </div>
         <% }); %>
 
