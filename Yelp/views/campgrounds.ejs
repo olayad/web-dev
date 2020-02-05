@@ -2,18 +2,18 @@
 
 <div class="container pt-3">
 
-    <header class="jumbotron bg-purple silver">
+    <header class="jumbotron border border-primary bg-white blue">
         <div class="container">
             <h1>Welcome to YelpCamp!</h1>
             <p>View our hand-picked campgrounds from all over the world!</p>
             <p>
-                <a class="btn btn-outline-light btn-lg" href="/campgrounds/new">Add new campground</a>
+                <a class="btn btn-primary btn-lg silver" href="/campgrounds/new">Add new campground</a>
             </p>
         </div>
     </header>
 
     <div class="row">
-        <div class="col-lg-12 fuchsia">
+        <div class="col-lg-12 blue">
             <h3>Our Most Popular Campgrounds!</h3>
         </div>
     </div>
@@ -24,7 +24,7 @@
                 <div class="card h-100 border--aqua" >
                     <img class="card-img-top"  src="<%= campground.image %>">
                     <div class="card-body bg-aqua">
-                        <h4 class="card-title text-center navy"> <%= campground.name %> </h4>
+                        <h4 class="card-title align-middle navy"> <%= campground.name %> </h4>
                     </div>
                 </div>
             </div>
