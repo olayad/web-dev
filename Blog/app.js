@@ -37,10 +37,10 @@ app.get("/blogs", function(req, res){
         if (err){
             console.log(err);
         } else {
-            console.log(blogs);
+            console.log('here');
             res.render("index", {blogs: blogs});
         }
-    })
+    });
 });
 
 app.listen(3000, function(){

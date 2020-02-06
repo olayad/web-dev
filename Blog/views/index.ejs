@@ -1,3 +1,10 @@
 <h1>Hi this is daniel</h1>
+<% blogs.forach(function(blog){ %>
+    <div>
+        <h2> <%= blog.title %> </h2>
+        <img src="<%= blog.image %>">
+        <span> <%= blog.created %> </span>
+        <p> <%= blog.body %> </p>
+    </div>
 
-<p><%= blogs %></p>
+<% }); %>
