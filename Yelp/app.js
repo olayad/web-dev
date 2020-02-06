@@ -55,7 +55,6 @@ app.get("/index", function(req, res){
             res.render("index", {campgrounds: allCampgrounds});
         }
     });
-    // res.render("campgrounds" ,{campgrounds: campgrounds});
 });
 
 // CREATE - Add new campground to db
@@ -63,8 +62,6 @@ app.post("/index", function(req, res){
     var name = req.body.name;
     var image = req.body.image;
     var newCampground = {name: name, image: image};
-    // campgrounds.push(newCampground);
-    // res.render("campgrounds" ,{campgrounds: campgrounds});
     Campground.create(newCampground, function(err, newlyCreated){
         if (err){
             console.log("Ooops, something went wrong creating new camp");
@@ -80,7 +77,6 @@ app.get("/campgrounds/new", function(req, res){
     res.render("new");
 });
 
-
 // SHOW - Shows more info about specific campground
 app.get("/campgrounds/:id", function(req, res){
     Campground.findById(req.params.id, function(err, foundCampground){
@@ -90,8 +86,6 @@ app.get("/campgrounds/:id", function(req, res){
            res.render("show", {campground: foundCampground});
        }
     });
-   //  req.params.id;
-   // res.render("show")
 });
 
 app.listen(3000, function(){
