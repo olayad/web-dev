@@ -1,5 +1,8 @@
+<%- include("partials/header") %>
+
+
 <h1>Hi this is daniel</h1>
-<% blogs.forach(function(blog){ %>
+<% blogs.forEach(function(blog){ %>
     <div>
         <h2> <%= blog.title %> </h2>
         <img src="<%= blog.image %>">
@@ -9,5 +12,4 @@
 
 <% }); %>
 
-<p>footer goes here</p>
-<h1>footer</h1>
+<%- include("partials/footer") %>
