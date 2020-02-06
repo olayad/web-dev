@@ -12,7 +12,8 @@ app.set("view engine", "ejs");
 // SCHEMA SETUP
 var campgroundSchema = new mongoose.Schema({
     name: String,
-    image: String
+    image: String,
+    description: String,
 });
 var Campground = mongoose.model("Campground", campgroundSchema);
 
@@ -20,6 +21,7 @@ var Campground = mongoose.model("Campground", campgroundSchema);
 // Campground.create({
 //     name: "Parksville",
 //     image: "https://images.unsplash.com/photo-1542332213-1d277bf3d6c6?ixlib=rb-1.2.1",
+//     description: "Great bathrooms, great service"
 // }, function(err, campground){
 //     if (err){
 //         console.log("Error while inserting campground to db");
@@ -27,7 +29,7 @@ var Campground = mongoose.model("Campground", campgroundSchema);
 //         console.log("New campground inserted: ", campground);
 //     }
 // });
-
+//
 
 // var campgrounds = [
 //    {name: "Tofino", image: "https://images.unsplash.com/photo-1497900304864-273dfb3aae33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9"},
@@ -38,23 +40,26 @@ var Campground = mongoose.model("Campground", campgroundSchema);
 //    {name: "Cape Scott1", image: "https://images.unsplash.com/photo-1488790881751-9068aa742b9b"}
 // ];
 
-
+// INDEX
 app.get("/", function(req, res){
     res.render("landing");
 });
 
-app.get("/campgrounds", function(req, res){
+
+// Show all campgrounds
+app.get("/index", function(req, res){
     Campground.find({},function (err, allCampgrounds){
         if (err){
             console.log("Oops, something went wrong searching for all campgrounds, ", err);
         } else {
-            res.render("campgrounds", {campgrounds: allCampgrounds});
+            res.render("index", {campgrounds: allCampgrounds});
         }
     });
     // res.render("campgrounds" ,{campgrounds: campgrounds});
 });
 
-app.post("/campgrounds", function(req, res){
+// CREATE - Add new campground to db
+app.post("/index", function(req, res){
     var name = req.body.name;
     var image = req.body.image;
     var newCampground = {name: name, image: image};
@@ -65,17 +70,29 @@ app.post("/campgrounds", function(req, res){
             console.log("Ooops, something went wrong creating new camp");
         } else {
             console.log("New campground inserted: ", newlyCreated);
-            res.render("campgrounds");
+            res.redirect("index");
         }
     })
-
-
-
 });
 
+// NEW - Show form to create new campground
 app.get("/campgrounds/new", function(req, res){
     res.render("new");
-})
+});
+
+
+// SHOW - Shows more info about specific campground
+app.get("/campgrounds/:id", function(req, res){
+    Campground.findById(req.params.id, function(err, foundCampground){
+       if (err){
+           console.log(err);
+       } else{
+           res.render("show", {campground: foundCampground});
+       }
+    });
+   //  req.params.id;
+   // res.render("show")
+});
 
 app.listen(3000, function(){
     console.log("Yelp app started!");
