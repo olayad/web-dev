@@ -3,15 +3,18 @@
 
 
 
-    <% blogs.forEach(function(blog){ %>
-        <div class="ui container text">
-            <h2> <%= blog.title %> </h2>
-            <img class="ui fluid image" src="<%= blog.image %>">
-            <span id="date"> <strong> <%= blog.created.toDateString() %> </strong></span>
-            <p> <%= blog.body.substring(0, 200) %>... </p>
-            <a href="/blogs/<%= blog._id %>" class="ui blue basic button" type="submit">Read more</a>
+    <% for(var i = 0 ; i < blogs.length ; i++) { %>
+        <div >
+            <h2> <%= blogs[i].title %> </h2>
+            <img class="ui fluid image" src="<%= blogs[i].image %>">
+            <p id="date"> <strong> <%= blogs[i].created.toDateString() %> </strong></p>
+            <p> <%= blogs[i].body.substring(0, 200) %>... </p>
+            <a href="/blogs/<%= blogs[i]._id %>" class="ui blue basic button" type="submit">Read more</a>
+            <% if(i < blogs.length - 1){ %>
+                <div class="ui  divider"></div>
+            <% } %>
         </div>
-    <% }); %>
+    <% }; %>
 </div>
 
 <%- include("partials/footer") %>
