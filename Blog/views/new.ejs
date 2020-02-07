@@ -2,7 +2,7 @@
 
 <div class="ui main text container segment">
     <div class="ui huge header">New Blog</div>
-    <form action="/blogs" method="POST">
+    <form action="/blogs" method="POST" class="ui form">
         <div class="field">
             <label>Title</label>
             <input type="text" name="blog[title]" placeholder="title">
@@ -15,7 +15,7 @@
             <label>Post</label>
             <textarea name="blog[body]" placeholder="blog post goes here"></textarea>
         </div>
-        <input class="ui blue basic big button" type="submit">
+        <button class="ui blue basic big button" type="submit">Submit</button>
     </form>
 </div>
 
