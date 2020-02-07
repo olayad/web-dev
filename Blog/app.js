@@ -22,9 +22,9 @@ var Blog = mongoose. model("Blog", blogSchema);
 
 
 // Blog.create({
-//     title: "Test1",
+//     title: "Post1",
 //     image: "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80",
-//     body: "Hi this is Bitcorn"
+//     body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto aspernatur blanditiis deserunt dolorem eaque id impedit, incidunt laudantium nesciunt nobis, perspiciatis quae quia sequi similique sint, voluptatem voluptates! Consequuntur, dolorem dolorum, eaque earum, eligendi error fugiat itaque modi odio odit officiis praesentium quidem quod recusandae suscipit ut vero voluptatum?"
 // });
 
 //RESTFUL ROUTES
@@ -59,6 +59,17 @@ app.get("/blogs/new", function(req, res){
     res.render("new");
 });
 
+
+app.get("/blogs/:id", function(req, res){
+    // console.log("req.params", req.params);
+    Blog.findById(req.params.id, function(err, foundBlog){
+        if (err){
+            console.log("Ooops, an error ocurred");
+        } else {
+            res.render("show", {blog: foundBlog});
+        }
+    });
+});
 
 
 app.listen(3000, function(){
