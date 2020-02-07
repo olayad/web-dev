@@ -42,6 +42,25 @@ app.get("/blogs", function(req, res){
     });
 });
 
+
+app.post("/blogs", function(req, res){
+    Blog.create(req.body.blog, function(err, newPost){
+        if (err){
+            console.log("Ooops, something went wrong creating new post");
+        } else {
+            console.log("New blog post inserted.");
+            res.redirect("/blogs");
+        }
+    })
+});
+
+
+app.get("/blogs/new", function(req, res){
+    res.render("new");
+});
+
+
+
 app.listen(3000, function(){
     console.log("Blog server is running!");
 });

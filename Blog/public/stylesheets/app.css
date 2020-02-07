@@ -1,4 +1,8 @@
 i.icon{
-    font-size: 2em;
+    font-size: 1.25em;
     font-weight: 300;
+}
+
+.container.main{
+    margin-top: 90px;
 }
