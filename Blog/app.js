@@ -1,6 +1,7 @@
 var express = require("express"),
     mongoose = require("mongoose"),
     bodyParser = require("body-parser"),
+    methodOverride = require("method-override"),
     app = express();
 
 // APP CONFIG
@@ -9,7 +10,10 @@ mongoose.connect("mongodb://localhost/blog", {useNewUrlParser: true,
 });
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
+// methodOverride is needed for the form (edit.ejs), to send a PUT request when editing post
+app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
+
 
 // MONGOOSE MODEL/CONFIG
 var blogSchema = new mongoose.Schema({
@@ -32,6 +36,7 @@ app.get("/", function(req, res){
     res.redirect("/blogs");
 });
 
+// Index - Show all blogs
 app.get("/blogs", function(req, res){
     Blog.find({}, function(err, blogs){
         if (err){
@@ -41,7 +46,6 @@ app.get("/blogs", function(req, res){
         }
     });
 });
-
 
 app.post("/blogs", function(req, res){
     Blog.create(req.body.blog, function(err, newPost){
@@ -70,6 +74,28 @@ app.get("/blogs/:id", function(req, res){
         }
     });
 });
+
+// EDIT ROUTE
+app.get("/blogs/:id/edit", function(req, res){
+    Blog.findById(req.params.id, function(err, foundBlog){
+        if (err){
+            console.log("Error happened");
+        } else {
+            res.render("edit", {blog: foundBlog})
+        }
+    });
+});
+
+//UPDATE ROUTE
+app.put("/blogs/:id", function(req, res){
+    // console.log("req.body", req)
+    // Blog.findByIdAndUpdate(req.param.id, function(err, foundBlog){
+    //
+    // });
+    res.send("it worked");
+})
+
+
 
 
 app.listen(3000, function(){
