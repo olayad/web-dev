@@ -1,21 +1,37 @@
-## Color Guessing Game
+## Blog
 
-Select the correct color given an rgb. 
+Stack: Express, Mongo, Semantic UI, JavaScript
 
-Uses html and JavaScript.
+Includes functionality to create, update and delete blog entries using REST routes.
 
-![](ColorGuessingGame/color-guessing-game.png)
+![](static/blog.png)
 
-## TO-DO List
+## Yelp clone
 
- Web tool which allows to add, delete entries and mark them as completed.
- 
- Uses html, css and jQuery.
+Stack: Bootstrap, jQuery, Express, Mongo
 
-![](TodoList/todo.png)
+Includes authentication and functionality to post, edit, delete posts using REST routes. 
+
+![](static/yelp.png)
 
 ## Audio + Visual Animation
 
+Stack: PaperJs, Howler (JS libraries).
+
 [Patatap](https://patatap.com/) clone.
 
-Uses PaperJs and Howler JavaScript libraries.
+## TO-DO List
+
+ Stack: HTML, Bootstrap, jQuery.
+
+ Web tool which allows to add, delete entries and mark them as completed.
+ 
+![](static/todo.png)
+
+## Color Guessing Game
+
+Stack: HTML, Bootstrap, JavaScript.
+
+Select the correct color given an rgb. 
+
+![](static/color-guessing-game.png)
