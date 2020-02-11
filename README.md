@@ -6,11 +6,11 @@ Includes functionality to create, update and delete blog entries using REST rout
 
 ![](static/blog.png)
 
-## Yelp clone
+## Yelp clone (WIP)
 
 Stack: Bootstrap, jQuery, Express, Mongo
 
-Includes authentication and functionality to post, edit, delete posts using REST routes. 
+Work in progress: Includes authentication and functionality to post, edit, delete posts using REST routes. 
 
 ![](static/yelp.png)
 
