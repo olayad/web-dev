@@ -1,6 +1,7 @@
 var express = require("express"),
     mongoose = require("mongoose"),
     bodyParser = require("body-parser"),
+    expressSanitizer = require("express-sanitizer"),
     methodOverride = require("method-override"),
     app = express();
 
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 // methodOverride is needed for the form (edit.ejs), to send a PUT request when editing post
 app.use(methodOverride("_method"));
+app.use(expressSanitizer());
 app.set("view engine", "ejs");
 
 
@@ -47,7 +49,9 @@ app.get("/blogs", function(req, res){
     });
 });
 
+// CREATE route
 app.post("/blogs", function(req, res){
+    req.body.blog.body = req.sanitize(req.body.blog.body);
     Blog.create(req.body.blog, function(err, newPost){
         if (err){
             console.log("Ooops, something went wrong creating new post");
@@ -88,6 +92,7 @@ app.get("/blogs/:id/edit", function(req, res){
 
 //UPDATE ROUTE
 app.put("/blogs/:id", function(req, res){
+    req.body.blog.body = req.sanitize(req.body.blog.body);
     Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
         if (err){
             res.redirect("/blogs");
