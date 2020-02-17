@@ -98,8 +98,10 @@ app.put("/blogs/:id", function(req, res){
     });
 });
 
+// DELETE ROUTE
+app.delete("/blogs/:id", function ((req, res){
 
-
+});
 
 app.listen(3000, function(){
     console.log("Blog server is running!");
