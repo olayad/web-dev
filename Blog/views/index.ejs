@@ -1,18 +1,38 @@
+
 <%- include("partials/header") %>
 
 <div class="ui main text container segment   ">
-    <% for(var i = 0 ; i < blogs.length ; i++) { %>
-        <div >
-            <h2> <%= blogs[i].title %> </h2>
-            <img class="ui fluid image" src="<%= blogs[i].image %>">
-            <p id="date"> <strong> <%= blogs[i].created.toDateString() %> </strong></p>
-            <p> <%= blogs[i].body.substring(0, 200) %>... </p>
-            <a href="/blogs/<%= blogs[i]._id %>" class="ui blue basic button" type="submit">Read more</a>
-            <% if(i < blogs.length - 1){ %>
-                <div class="ui  divider"></div>
-            <% } %>
+    <div class="ui huge header">RESTful Blog App</div>
+    <div class="ui top attached segment ">
+        <div class="ui divided items">
+
+            <% for(var i = 0 ; i < blogs.length ; i++) { %>
+                <div class="item">
+                    <div class="image">
+                        <img src="<%= blogs[i].image %>">
+                    </div>
+                    <div class="content">
+                        <a class="ui header" href="/blogs/<%= blogs[i]._id %>"> <%= blogs[i].title %> </a>
+                        <div class="meta">
+                            <p id="date"> <strong> <%= blogs[i].created.toDateString() %> </strong></p>
+                        </div>
+                        <div class="description">
+                            <p> <%- blogs[i].body.substring(0, 100) %>... </p>
+                        </div>
+                        <div class="extra">
+                            <a href="/blogs/<%= blogs[i]._id %>" class="ui blue floated basic button">
+                                Read more
+                                <i class="right chevron icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <% }; %>
+
         </div>
-    <% }; %>
+    </div>
+
 </div>
 
 <%- include("partials/footer") %>
+
