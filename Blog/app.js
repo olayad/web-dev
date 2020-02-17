@@ -88,12 +88,15 @@ app.get("/blogs/:id/edit", function(req, res){
 
 //UPDATE ROUTE
 app.put("/blogs/:id", function(req, res){
-    // console.log("req.body", req)
-    // Blog.findByIdAndUpdate(req.param.id, function(err, foundBlog){
-    //
-    // });
-    res.send("it worked");
-})
+    Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
+        if (err){
+            res.redirect("/blogs");
+        } else {
+            console.log("here (updated)", updatedBlog);
+            res.redirect("/blogs/" + req.params.id)
+        }
+    });
+});
 
 
 
