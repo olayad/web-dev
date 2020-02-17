@@ -99,9 +99,16 @@ app.put("/blogs/:id", function(req, res){
 });
 
 // DELETE ROUTE
-app.delete("/blogs/:id", function ((req, res){
-
+app.delete("/blogs/:id", function (req, res){
+    Blog.findByIdAndDelete(req.params.id, function(err){
+        if(err){
+            res.send("Oopps, error occurred, couldn't delete post")
+        } else {
+            res.redirect("/blogs");
+        }
+    })
 });
+
 
 app.listen(3000, function(){
     console.log("Blog server is running!");
