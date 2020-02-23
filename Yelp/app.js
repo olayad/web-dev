@@ -1,9 +1,12 @@
-var express = require("express"),
-    app = express(),
-    bodyParser = require("body-parser"),
-    mongoose = require("mongoose"),
-    Campground = require("./models/campground"),
+var express     = require("express"),
+    app         = express(),
+    bodyParser  = require("body-parser"),
+    mongoose    = require("mongoose"),
+    Campground  = require("./models/campground"),
+    seedDB      = require("./models/seeds")
 ;
+
+seedDB();
 
 mongoose.connect("mongodb://localhost/yelp_camp", {useNewUrlParser: true,
      useUnifiedTopology: true
@@ -12,29 +15,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
 
-
-
-// Campground.create({
-//     name: "Parksville",
-//     image: "https://images.unsplash.com/photo-1542332213-1d277bf3d6c6?ixlib=rb-1.2.1",
-//     description: "Great bathrooms, great service"
-// }, function(err, campground){
-//     if (err){
-//         console.log("Error while inserting campground to db");
-//     } else {
-//         console.log("New campground inserted: ", campground);
-//     }
-// });
-//
-
-// var campgrounds = [
-//    {name: "Tofino", image: "https://images.unsplash.com/photo-1497900304864-273dfb3aae33?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9"},
-//    {name: "Parksville", image: "https://images.unsplash.com/photo-1542332213-1d277bf3d6c6?ixlib=rb-1.2.1"},
-//    {name: "Cape Scott", image: "https://images.unsplash.com/photo-1488790881751-9068aa742b9b"},
-//    {name: "Tofino1", image: "https://images.unsplash.com/photo-1497900304864-273dfb3aae33?ixlib=rb-1.2.1"},
-//    {name: "Parksville1", image: "https://images.unsplash.com/photo-1542332213-1d277bf3d6c6?ixlib=rb-1.2.1"},
-//    {name: "Cape Scott1", image: "https://images.unsplash.com/photo-1488790881751-9068aa742b9b"}
-// ];
 
 // INDEX
 app.get("/", function(req, res){
