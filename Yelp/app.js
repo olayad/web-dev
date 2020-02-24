@@ -31,7 +31,7 @@ app.get("/index", function(req, res){
         if (err){
             console.log("Oops, something went wrong searching for all campgrounds, ", err);
         } else {
-            res.render("index", {campgrounds: allCampgrounds});
+            res.render("campgrounds/index", {campgrounds: allCampgrounds});
         }
     });
 });
@@ -47,14 +47,14 @@ app.post("/index", function(req, res){
             console.log("Ooops, something went wrong creating new camp");
         } else {
             console.log("New campground inserted: ", newlyCreated);
-            res.redirect("index");
+            res.redirect("campgrounds/index");
         }
     })
 });
 
 // NEW - Show form to create new campground
 app.get("/campgrounds/new", function(req, res){
-    res.render("new");
+    res.render("campgrounds/new");
 });
 
 // SHOW - Shows more info about specific campground
@@ -64,9 +64,23 @@ app.get("/campgrounds/:id", function(req, res){
            console.log(err);
        } else{
            console.log("foundcampground: ", foundCampground);
-           res.render("show", {campground: foundCampground});
+           res.render("campgrounds/show", {campground: foundCampground});
        }
     });
+});
+
+
+//COMMENTS ROUTES
+app.get("/campgrounds/:id/comments/new", function(req, res){
+    Campground.findById(req.params.id, function(err, campground){
+       if(err){
+           console.log(err);
+       } else{
+           console.log("This is the campground I found!: ", campground);
+           res.render("comments/new", {campground: campground});
+       }
+    });
+    res.render('comments/new');
 });
 
 app.listen(3000, function(){
