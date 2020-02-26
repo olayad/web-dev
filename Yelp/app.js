@@ -76,11 +76,9 @@ app.get("/campgrounds/:id/comments/new", function(req, res){
        if(err){
            console.log(err);
        } else{
-           console.log("This is the campground I found!: ", campground);
            res.render("comments/new", {campground: campground});
        }
     });
-    res.render('comments/new');
 });
 
 app.listen(3000, function(){
