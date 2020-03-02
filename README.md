@@ -8,11 +8,13 @@ Includes functionality to create, update and delete blog entries using REST rout
 
 ## Yelp clone (WIP)
 
-Stack: Bootstrap, jQuery, Express, Mongo
+Stack: Bootstrap, jQuery, Express, Mongo, Passport
 
 Work in progress: Includes authentication and functionality to post, edit, delete posts using REST routes. 
 
-![](static/yelp.png)
+![](static/yelp-main.png)
+
+![](static/yelp-show.png)
 
 ## Audio + Visual Animation
 
