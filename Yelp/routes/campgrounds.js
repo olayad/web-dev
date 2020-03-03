@@ -25,7 +25,7 @@ router.post("/", function(req, res){
             console.log("Ooops, something went wrong creating new camp");
         } else {
             console.log("New campground inserted: ", newlyCreated);
-            res.redirect("campgrounds/index");
+            res.redirect("/campgrounds");
         }
     })
 });
