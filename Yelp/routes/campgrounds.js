@@ -8,6 +8,8 @@ router.get("/", function(req, res){
     Campground.find({},function (err, allCampgrounds){
         if (err){
             console.log("Oops, something went wrong searching for all campgrounds, ", err);
+            req.flash("error", "Oops, something went wrong!");
+
         } else {
             res.render("campgrounds/index", {campgrounds: allCampgrounds, currentUser: req.user});
         }
@@ -26,9 +28,10 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     var newCampground = {name: name, image: image, description: description, author: author};
     Campground.create(newCampground, function(err, newlyCreated){
         if (err){
-            console.log("Ooops, something went wrong creating new camp");
+            console.log("Ooops, something went wrong creating new camp", err);
+            req.flash("error", "Oops, something went wrong!");
+
         } else {
-            console.log("New campground inserted: ", newlyCreated);
             res.redirect("/campgrounds");
         }
     })
@@ -43,6 +46,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 router.get("/:id", function(req, res){
     Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
        if (err){
+           req.flash("error", "Oops, something went wrong!");
            console.log(err);
        } else{
            res.render("campgrounds/show", {campground: foundCampground});
@@ -74,7 +78,8 @@ router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
 router.delete("/:id", middleware.checkCampgroundOwnership, function (req, res) {
     Campground.findByIdAndRemove(req.params.id, function(err){
         if(err){
-            console.log("Oops, there was an error:" , err);
+            req.flash("error", "Oops, something went wrong!");
+            console.log(err);
             res.redirect("/campgrounds");
         } else{
             res.redirect("/campgrounds");
