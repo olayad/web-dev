@@ -6,9 +6,9 @@ Includes functionality to create, update and delete blog entries using REST rout
 
 ![](static/blog.png)
 
-## Yelp clone (WIP)
+## Yelp clone
 
-Stack: Bootstrap, Node.js, Express, Mongo, Passport, Flash messsages
+Stack: Bootstrap, Node.js, Express, Mongo, Passport, Flash messsages (connect-flash).
 
 Work in progress: Includes authentication and functionality to post, edit, delete posts using REST routes. 
 
