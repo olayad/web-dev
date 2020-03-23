@@ -1,3 +1,7 @@
+## Recipe Book (WIP)
+
+Stack: Angular
+
 ## Blog
 
 Stack: Express, Mongo, Semantic UI, JavaScript
