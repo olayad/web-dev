@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   collapsed = true;
-
+  @Output() notifyPageChanged: EventEmitter<any> = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeView(page){
+    if (page === 'recipe'){
+      this.notifyPageChanged.emit('recipe');
+    } else {
+      this.notifyPageChanged.emit('shopping');
+    }
   }
 
 }
