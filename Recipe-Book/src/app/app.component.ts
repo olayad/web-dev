@@ -6,12 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  currentPage: string = 'recipe';
+  loadedFeature: string = 'recipe';
 
-
-
-  changeCurrentPage(page){
-    console.log('Page clicked is: ', page);
-    this.currentPage = page;
+  onNavigate(feature: string){
+    console.log('Feature clicked is: ', feature);
+    this.loadedFeature = feature;
   }
 }

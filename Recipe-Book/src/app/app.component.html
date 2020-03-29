@@ -1,5 +1,5 @@
-<app-header (notifyPageChanged)="changeCurrentPage($event)"></app-header>
+<app-header (notifyPageChanged)="onNavigate($event)"></app-header>
 <div class="container">
-  <app-recipes *ngIf="currentPage === 'recipe'"></app-recipes>
-  <app-shopping-list *ngIf="currentPage === 'shopping'"></app-shopping-list>
+  <app-recipes *ngIf="loadedFeature === 'recipe'"></app-recipes>
+  <app-shopping-list *ngIf="loadedFeature !== 'recipe'"></app-shopping-list>
 </div>

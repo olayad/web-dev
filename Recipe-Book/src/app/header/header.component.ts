@@ -13,8 +13,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  changeView(page){
-    if (page === 'recipe'){
+  onSelect(feature: string){
+    if (feature === 'recipe'){
       this.notifyPageChanged.emit('recipe');
     } else {
       this.notifyPageChanged.emit('shopping');
