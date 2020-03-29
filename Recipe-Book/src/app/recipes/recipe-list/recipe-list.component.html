@@ -8,7 +8,7 @@
     <app-recipe-item
       *ngFor="let recipeElement of recipes"
       [recipe]="recipeElement"
-      (recipeSelected)="passEventToParent($event)"
+      (recipeSelected)="onRecipeSelected(recipeElement)"
     ></app-recipe-item>
   </div>
 </div>

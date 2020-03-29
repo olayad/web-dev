@@ -7,15 +7,12 @@ import {Recipe} from "./recipe.model";
   styleUrls: ['./recipes.component.css']
 })
 export class RecipesComponent implements OnInit {
-  recipe: Recipe;
+  selectedRecipe: Recipe;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onRecipeSelected(recipeSelected){
-    console.log('(recipes.component) - Parent got recipe! ',recipeSelected)
-    this.recipe = recipeSelected;
-  }
+
 }
