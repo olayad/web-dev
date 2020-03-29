@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -9,19 +9,18 @@ import { Recipe } from '../recipe.model';
 
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [
-    new Recipe('A test recipe', 'This is simply a test', 'https://images.unsplash.com/photo-1495521821757-a1efb6729352?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80'),
-    new Recipe('A test recipe', 'This is simply a test', 'https://images.unsplash.com/photo-1495521821757-a1efb6729352?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80')
-
+    new Recipe('Eggs and bacon', 'This is simply a breakfast', 'https://images.unsplash.com/photo-1563636247809-c76f873625ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1260&q=80'),
+    new Recipe('Lentil Soup', 'This is a soup', 'https://images.unsplash.com/photo-1510431198580-7727c9fa1e3a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80')
   ];
-
-
-
+  @Output() passToParent = new EventEmitter();
 
   constructor() {
   }
 
-
   ngOnInit(): void {
   }
 
+  passEventToParent(recipeSelected){
+    this.passToParent.emit(recipeSelected)
+  }
 }
