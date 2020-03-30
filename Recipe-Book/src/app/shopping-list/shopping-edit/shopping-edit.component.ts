@@ -23,7 +23,6 @@ export class ShoppingEditComponent implements OnInit, AfterViewInit {
     const newIngredient: Ingredient = {
       name: this.nameInputRef.nativeElement.value,
       amount: this.amountInputRef.nativeElement.value
-
     };
     this.ingredientAdded.emit(newIngredient);
     this.clearInputs();
