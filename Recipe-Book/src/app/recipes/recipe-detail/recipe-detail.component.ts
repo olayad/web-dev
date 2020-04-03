@@ -13,16 +13,13 @@ export class RecipeDetailComponent implements OnInit {
 
   constructor(
     private recipeService: RecipeService,
-    private shoppingListService: ShoppingListService
+    // private shoppingListService: ShoppingListService
   ){ }
 
   ngOnInit(): void {
   }
-10
-  addIngredientsToShoppingList(){
-    for (let ingredient of this.recipe.ingredients){
-      this.shoppingListService.addIngredient(ingredient)
-      console.log('Adding ingredient: ', ingredient, ' to shopping list');
-    }
+
+  onAddToShoppingList(){
+    this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients)
   }
 }
