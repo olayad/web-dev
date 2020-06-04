@@ -1,0 +1,32 @@
+#roundtable {
+	border-collapse: collapse;
+}
+
+#roundtable td {
+	border-top: none;
+	padding: 5px;
+}
+
+
+.circle {
+	display: block;
+	height: 50px;
+	width: 50px;
+	border: 2px solid black;
+	margin: auto;
+	/*border-radius: 100%;*/
+	border-radius: 50%;
+}
+
+.grey {
+	background-color: grey;
+}
+
+.red {
+	background-color: red;
+}
+
+.blue {
+	background-color: blue;
+}
+

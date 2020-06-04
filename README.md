@@ -1,6 +1,8 @@
-## Recipe Book (WIP)
+## Connect-Four-Game
 
-Stack: Angular
+Stack: JQuery 
+
+![](static/connect-four.png)
 
 ## Blog
 
@@ -30,9 +32,9 @@ Stack: PaperJs, Howler (JS libraries).
 
 ## TO-DO List
 
- Stack: HTML, Bootstrap, jQuery.
+Stack: HTML, Bootstrap, jQuery.
 
- Web tool which allows to add, delete entries and mark them as completed.
+Web tool which allows to add, delete entries and mark them as completed.
  
 ![](static/todo.png)
 
